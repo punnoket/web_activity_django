@@ -91,7 +91,7 @@ input[type=submit]:hover {
                         <a class="page-scroll" href="#portfolio">All Activity</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">Add Activity</a>
+                        <a class="page-scroll" href="{% url 'add_activity' %}">Add Activity</a>
                     </li>
 
                 </ul>
@@ -234,7 +234,7 @@ input[type=submit]:hover {
                         <label for="image_file">Please select image </label>
                         <input type="file"  name="image_file" id="image_file" onchange="fileSelected();"  >
 
-                        <input type="submit" value="Submit">
+                        <input type="submit" value="Submit" onclick="">
                       </form>
                     </div>
 
@@ -281,7 +281,7 @@ input[type=submit]:hover {
 
                                 <img class="img-responsive img-centered" src="{% static 'img/portfolio/yourpreridechecklist2.png' %}" alt="">
 
-                                <form align="center" name ="days">
+                                <form align="center" name ="days" method="post">
                                     <input type="radio" name="day" value="male"> Monday<br><br>
                                     <input type="radio" name="day" value="female"> Tuesday<br><br>
                                     <input type="radio" name="day" value="other"> Wednesday<br><br>
@@ -317,12 +317,13 @@ input[type=submit]:hover {
                                 <h2>Project Heading</h2>
                                 <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                                 <img class="img-responsive img-centered" src="{% static 'img/portfolio/1440084817-28-o.png'%}" alt="">
-                                <form align="center" name ="days">
+                                <form align="center" name ="days" method="get" action="">
                                     <input type="radio" name="day" value="male"> Monday<br><br>
                                     <input type="radio" name="day" value="female"> Tuesday<br><br>
                                     <input type="radio" name="day" value="other"> Wednesday<br><br>
                                     <input type="radio" name="day" value="female"> Thursday<br><br>
                                     <input type="radio" name="day" value="other"> Friday<br><br>
+                                    <input type="submit" value="vote">
                                   </form>
 
                                   <a href="{% url 'vote'%}" class="portfolio-link" data-toggle="modal">VOTE</a>
