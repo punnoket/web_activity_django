@@ -1,39 +1,65 @@
-<head>
-<body>
-  <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog">
-          <div class="modal-content">
-              <div class="close-modal" data-dismiss="modal">
-                  <div class="lr">
-                      <div class="rl">
-                      </div>
-                  </div>
-              </div>
-              <div class="container">
+
+{% extends "base.html" %}
+{% block content %}
+ <meta charset="utf-8">
+<style >
+
+    #radiobax,#vote{
+      text-align:left;
+      color:#f2f2f2;
+      font-weight: bold;;
+    }
+    h2,p{
+      text-align: center;
+      color:#f2f2f2;
+      font-weight: bold;;
+    }
+
+
+
+</style>
+ <body background="http://super.nova.org/XP/Lighting_Creating3D/Black/Black1.jpg"></body>
+ <br/> <br/><br/><br/><br/><h2>{{activity.Activityname}}</h2>
+                              <p class="item-intro text-muted">{{activity.description}}</p> <br/> <br/><br/>
+<div class="row">
+<div class="col-sm-2">
+</div>
+          <div class="col-sm-5">
+          <img src="{{activity.image.url}}" style="width:500px;heigth:500px;"></img>
+          </div>
+          <div class="col-sm-3" >
+
+            <h2 id="vote">Vote !!!!</h2>
+                              <form id="radiobax"action="/vote_score"align="center" name ="days" method="get">
+                              <div id="from">
+                                  <input id="inputid" type="radio" name="day" value="Monday"> Monday<br><br>
+                                  <input id="inputid" type="radio" name="day" value="Tuesday"> Tuesday<br><br>
+                                  <input  id="inputid" type="radio" name="day" value="Wednesday"> Wednesday<br><br>
+                                  <input id="inputid" type="radio" name="day" value="Thursday"> Thursday<br><br>
+                                  <input id="inputid" type="radio" name="day" value="Friday"> Friday<br><br>
+                            </div>
+                              <button type="submit" class="btn btn-primary" onclick="location.href="""> VOTE </button>
+                            </form>
+
+
+          </div>
+          <div class="col-sm-1">
+</div>
+</div>
+
+
+              <!-- <div class="container">
                   <div class="row">
                       <div class="col-lg-8 col-lg-offset-2">
                           <div class="modal-body">
-                              <!-- Project Details Go Here -->
-                              <h2>Project Name</h2>
-                              <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                              Project Details Go Here
 
-                            
-                              <form action="/vote"align="center" name ="days" method="get">
-                                  <input type="radio" name="day" value="Monday"> Monday<br><br>
-                                  <input type="radio" name="day" value="Tuesday"> Tuesday<br><br>
-                                  <input type="radio" name="day" value="Wednesday"> Wednesday<br><br>
-                                  <input type="radio" name="day" value="Thursday"> Thursday<br><br>
-                                  <input type="radio" name="day" value="Friday"> Friday<br><br>
 
-                              <button type="submit" class="btn btn-primary" onclick="location.href="{% url 'vote' %}""> VOTE </button>
-                            </form>
+
+
                           </div>
                       </div>
                   </div>
-              </div>
-          </div>
-      </div>
-  </div>
+              </div> -->
 
-</body>
-</head>
+{% endblock %}

@@ -13,15 +13,22 @@ def hike(request):
 def all_activity(request):
 	id = 1;
 	activities = Activity.objects.all()
-	for i in activities:
-		print(i.image.url)
+
 	return render(request, 'AllAc.html',{'activity': activities})
 
-def vote(request):
+def vote(request, id=1):
 	score = request.GET.get("day")
 	print(score)
+	activity = Activity.objects.get(id=id);
 	##return redirect('home')
-	return render(request, 'vote.html', {'key': "value" })
+	return render(request, 'vote.html', {'activity': activity })
+
+def voteScore(request, id=1):
+	score = request.GET.get("day")
+	print(score)
+
+	##return redirect('home')
+	return render(request, 'vote.html')
 
 class CreateActivity(CreateView):
 	queryset = Activity()

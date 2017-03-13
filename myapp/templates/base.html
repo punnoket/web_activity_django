@@ -95,40 +95,10 @@ input[type=submit]:hover {
         <!-- /.container-fluid -->
     </nav>
 
-    <!-- Header -->
-   <!--  <header>
-        <div class="container">
-            <div class="intro-text">
-                <div class="intro-lead-in">Welcome To Activity TU</div>
-                <div class="intro-heading">It's Nice To Meet You</div>
-                <a href="#portfolio" class="page-scroll btn btn-xl">Let's Vote</a>
-            </div>
-        </div>
-    </header> -->
-
-
-
-    <!-- Portfolio Grid Section -->
-    <p style="text-align:center; font-size:50px;">All Activity</p>
-  			<div class="col-sm-1"></div>
-  		  <div class="col-sm-10">
-  				{% for i in activity %}
-
-              <a href="{% url 'vote' i.id%}">
-  				   <img src="{{i.image.url}}" style="width:300px;heigth:300px;"> </img>
-
-          </a>
-  		    {% endfor %}
-  			</div>
-  			<div class="col-sm-1"></div>
-
-    <!-- Portfolio Modals -->
-    <!-- Use the modals below to showcase details about your portfolio projects! -->
-
-    <!-- Portfolio Modal 1 -->
-
-
-
+    
+          {% block content %}
+          {% endblock %}
+    
     <!-- jQuery -->
     <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
 
