@@ -26,7 +26,10 @@ urlpatterns = [
     url(r'^home/', views.home,name="home"),
     url(r'^vote/', views.vote,name = "vote"),
     url(r'^hike/', views.hike,name = "hike"),
+    url(r'^all_activity/', views.all_activity,name = "all_activity"),
     url(r'^add_activity/', views.CreateActivity.as_view(),name = "add_activity"),
+    
+    
     # url(r'^$',Redirectview.as_view(url="/main/home/"),name='index'),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

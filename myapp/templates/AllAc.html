@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Activity</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Theme CSS -->
+    <link href="{% static 'css/agency.min.css' %}" rel="stylesheet">
+
+<style type="text/css">
+
+
+
+
+    input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #fed136;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #FCD751;
+}
+
+#togtang {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+</style>
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="{% url 'home' %}">TU Activity</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+
+                    <li>
+                        <a class="page-scroll" href="{% url 'all_activity' %}">All Activity</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="{% url 'add_activity' %}">Add Activity</a>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+   <!--  <header>
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">Welcome To Activity TU</div>
+                <div class="intro-heading">It's Nice To Meet You</div>
+                <a href="#portfolio" class="page-scroll btn btn-xl">Let's Vote</a>
+            </div>
+        </div>
+    </header> -->
+
+
+
+    <!-- Portfolio Grid Section -->
+    <section id="portfolio" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                 {% for i in images %}
+                     <img     src="{{i.image.url}}" > </img> 
+                 {% endfor %}
+                    <h2 class="section-heading">Activity</h2>
+                    <h3 class="section-subheading text-muted">Please select activity that you want to vote</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="{% static 'img/portfolio/yourpreridechecklist.png'%}" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Cycling</h4>
+                        <p class="text-muted">Description</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="{% static 'img/portfolio/1440084817-28-o.png'%}" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Rock Climbing</h4>
+                        <p class="text-muted">Description</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="{% static 'img/portfolio/boxing-gloves.png'%}" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Thai boxing</h4>
+                        <p class="text-muted">Description</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="{% static 'img/portfolio/6_tennis_293886k.png'%}" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Tennis</h4>
+                        <p class="text-muted">Description</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="{% static 'img/portfolio/soccer-wallpaper-15.png'%}" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Football</h4>
+                        <p class="text-muted">Description</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="{% static 'img/portfolio/55496824.png'%}" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>shooting</h4>
+                        <p class="text-muted">Description</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    <!-- Portfolio Modals -->
+    <!-- Use the modals below to showcase details about your portfolio projects! -->
+
+    <!-- Portfolio Modal 1 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2>Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+
+                                <img class="img-responsive img-centered" src="{% static 'img/portfolio/yourpreridechecklist2.png' %}" alt="">
+
+                                <form align="center" name ="days" method="post">
+                                    <input type="radio" name="day" value="male"> Monday<br><br>
+                                    <input type="radio" name="day" value="female"> Tuesday<br><br>
+                                    <input type="radio" name="day" value="other"> Wednesday<br><br>
+                                    <input type="radio" name="day" value="female"> Thursday<br><br>
+                                    <input type="radio" name="day" value="other"> Friday<br><br>
+                                  </form>
+
+                                  <a href="{% url 'vote'%}" class="portfolio-link" data-toggle="modal">VOTE</a>
+                                <button type="button" class="btn btn-primary" onclick="location.href="{% url 'vote' %}""> VOTE </button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Modal 2 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="modal-body">
+                                <h2>Project Heading</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-responsive img-centered" src="{% static 'img/portfolio/1440084817-28-o.png'%}" alt="">
+                                <form align="center" name ="days" method="get" action="">
+                                    <input type="radio" name="day" value="male"> Monday<br><br>
+                                    <input type="radio" name="day" value="female"> Tuesday<br><br>
+                                    <input type="radio" name="day" value="other"> Wednesday<br><br>
+                                    <input type="radio" name="day" value="female"> Thursday<br><br>
+                                    <input type="radio" name="day" value="other"> Friday<br><br>
+                                    <input type="submit" value="vote">
+                                  </form>
+
+                                  <a href="{% url 'vote'%}" class="portfolio-link" data-toggle="modal">VOTE</a>
+                                <button type="button" class="btn btn-primary" onclick="location.href="{% url 'vote' %}""> VOTE </button>  </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Modal 3 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2>Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-responsive img-centered" src="{% static 'img/portfolio/boxing-gloves2.png'%}" alt="">
+                                <form align="center" name ="days">
+                                    <input type="radio" name="day" value="male"> Monday<br><br>
+                                    <input type="radio" name="day" value="female"> Tuesday<br><br>
+                                    <input type="radio" name="day" value="other"> Wednesday<br><br>
+                                    <input type="radio" name="day" value="female"> Thursday<br><br>
+                                    <input type="radio" name="day" value="other"> Friday<br><br>
+                                  </form>
+
+                                  <a href="{% url 'vote'%}" class="portfolio-link" data-toggle="modal">VOTE</a>
+                                <button type="button" class="btn btn-primary" onclick="location.href="{% url 'vote' %}""> VOTE </button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Modal 4 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2>Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-responsive img-centered" src="{% static 'img/portfolio/6_tennis_293886k2.png'%}" alt="">
+                                <form align="center" name ="days">
+                                    <input type="radio" name="day" value="male"> Monday<br><br>
+                                    <input type="radio" name="day" value="female"> Tuesday<br><br>
+                                    <input type="radio" name="day" value="other"> Wednesday<br><br>
+                                    <input type="radio" name="day" value="female"> Thursday<br><br>
+                                    <input type="radio" name="day" value="other"> Friday<br><br>
+                                  </form>
+
+                                  <a href="{% url 'vote'%}" class="portfolio-link" data-toggle="modal">VOTE</a>
+                                <button type="button" class="btn btn-primary" onclick="location.href="{% url 'vote' %}""> VOTE </button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Modal 5 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2>Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-responsive img-centered" src="{% static 'img/portfolio/soccer-wallpaper-152.png'%}" alt="">
+                                <form align="center" name ="days">
+                                    <input type="radio" name="day" value="male"> Monday<br><br>
+                                    <input type="radio" name="day" value="female"> Tuesday<br><br>
+                                    <input type="radio" name="day" value="other"> Wednesday<br><br>
+                                    <input type="radio" name="day" value="female"> Thursday<br><br>
+                                    <input type="radio" name="day" value="other"> Friday<br><br>
+                                  </form>
+
+                                  <a href="{% url 'vote'%}" class="portfolio-link" data-toggle="modal">VOTE</a>
+                                <button type="button" class="btn btn-primary" onclick="location.href="{% url 'vote' %}""> VOTE </button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Modal 6 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2>Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-responsive img-centered" src="{% static 'img/portfolio/554968242.png'%}" alt="">
+                                <form align="center" name ="days">
+                                    <input type="radio" name="day" value="male"> Monday<br><br>
+                                    <input type="radio" name="day" value="female"> Tuesday<br><br>
+                                    <input type="radio" name="day" value="other"> Wednesday<br><br>
+                                    <input type="radio" name="day" value="female"> Thursday<br><br>
+                                    <input type="radio" name="day" value="other"> Friday<br><br>
+                                  </form>
+
+                                  <a href="{% url 'vote'%}" class="portfolio-link" data-toggle="modal">VOTE</a>
+                                <button type="button" class="btn btn-primary" onclick="location.href="{% url 'vote' %}""> VOTE </button>  </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" integrity="sha384-mE6eXfrb8jxl0rzJDBRanYqgBxtJ6Unn4/1F7q4xRRyIw7Vdg9jP4ycT7x1iVsgb" crossorigin="anonymous"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="{% static 'js/jqBootstrapValidation.js' %}"></script>
+    <script src="{% static 'js/contact_me.js' %}"></script>
+
+    <!-- Theme JavaScript. -->
+    <script src="{% static 'js/agency.min.js' %}"></script>
+
+</body>
+
+</html>

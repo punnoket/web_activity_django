@@ -10,7 +10,7 @@ from .models import Activity
 class ActivityForm(ModelForm):
 	class Meta:
 		model =  Activity
-		exclude=[]
+		exclude=['vote_score']
 
 	def __init__(self, *args, **kwargs):
 		super(ActivityForm, self).__init__(*args, **kwargs)

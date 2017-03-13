@@ -10,6 +10,9 @@ def home(request):
 def hike(request):
 	return render(request, 'hike.html', {'key': "value" })
 
+def all_activity(request):
+	return render(request, 'AllAc.html',{'key': "value"})
+
 def vote(request):
 	score = request.body
 	print("test")
