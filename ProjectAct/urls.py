@@ -19,24 +19,23 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from myapp import views
 
-
 urlpatterns = [
     url(r'^admin/', admin.site.urls,name="admin"),
     url(r'^auth/',include('wl_auth.urls',namespace="wl_auth")),
     url(r'^home/', views.home,name="home"),
     url(r'^vote/', views.vote,name = "vote"),
     url(r'^hike/', views.hike,name = "hike"),
-    url(r'^all_activity/', views.all_activity,{'document_root' : settings.MEDIA_ROOT},name = "all_activity"),
+    url(r'^all_activity/', views.all_activity,name = "all_activity"),
     url(r'^add_activity/', views.CreateActivity.as_view(),name = "add_activity"),
 
 
     # url(r'^$',Redirectview.as_view(url="/main/home/"),name='index'),
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] #+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
 # if settings.DEBUG:
 # urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 from django.conf import settings
 from django.conf.urls.static import static
-if settings.DEBUG:
+if settings.DEBUG: 
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

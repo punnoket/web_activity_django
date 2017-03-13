@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'django_extensions',
 ]
-
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 

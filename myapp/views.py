@@ -13,7 +13,8 @@ def hike(request):
 def all_activity(request):
 	id = 1;
 	activities = Activity.objects.all()
-	print(activities)
+	for i in activities:
+		print(i.image.url)
 	return render(request, 'AllAc.html',{'activity': activities})
 
 def vote(request):
