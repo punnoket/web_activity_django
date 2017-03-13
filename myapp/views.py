@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView
 from models import Activity
 from myapp.forms import ActivityForm
@@ -13,7 +13,6 @@ def hike(request):
 def all_activity(request):
 	id = 1;
 	activities = Activity.objects.all()
-
 	return render(request, 'AllAc.html',{'activity': activities})
 
 def vote(request, id=1):
@@ -26,9 +25,7 @@ def vote(request, id=1):
 def voteScore(request, id=1):
 	score = request.GET.get("day")
 	print(score)
-
-	##return redirect('home')
-	return render(request, 'vote.html')
+	return redirect('home')
 
 class CreateActivity(CreateView):
 	queryset = Activity()
