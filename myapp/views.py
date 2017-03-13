@@ -14,7 +14,7 @@ def all_activity(request):
 	return render(request, 'AllAc.html',{'key': "value"})
 
 def vote(request):
-	score = request.GET.get("days")
+	score = request.GET.get("day")
 	print(score)
 	##return redirect('home')
 	return render(request, 'home.html', {'key': "value" })

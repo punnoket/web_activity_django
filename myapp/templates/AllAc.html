@@ -114,7 +114,7 @@ input[type=submit]:hover {
             <div class="row">
                 <div class="col-lg-12 text-center">
                  {% for i in images %}
-                     <img     src="{{i.image.url}}" > </img> 
+                     <img     src="{{i.image.url}}" > </img>
                  {% endfor %}
                     <h2 class="section-heading">Activity</h2>
                     <h3 class="section-subheading text-muted">Please select activity that you want to vote</h3>
@@ -209,7 +209,7 @@ input[type=submit]:hover {
         </div>
     </section>
 
-   
+
     <!-- Portfolio Modals -->
     <!-- Use the modals below to showcase details about your portfolio projects! -->
 
@@ -233,17 +233,15 @@ input[type=submit]:hover {
 
                                 <img class="img-responsive img-centered" src="{% static 'img/portfolio/yourpreridechecklist2.png' %}" alt="">
 
-                                <form align="center" name ="days" method="post">
-                                    <input type="radio" name="day" value="male"> Monday<br><br>
-                                    <input type="radio" name="day" value="female"> Tuesday<br><br>
-                                    <input type="radio" name="day" value="other"> Wednesday<br><br>
-                                    <input type="radio" name="day" value="female"> Thursday<br><br>
-                                    <input type="radio" name="day" value="other"> Friday<br><br>
-                                  </form>
-
-                                  <a href="{% url 'vote'%}" class="portfolio-link" data-toggle="modal">VOTE</a>
-                                <button type="button" class="btn btn-primary" onclick="location.href="{% url 'vote' %}""> VOTE </button>
-
+                                <form action="/vote"align="center" name ="days" method="get">
+                                    <input type="radio" name="day" value="Monday"> Monday<br><br>
+                                    <input type="radio" name="day" value="Tuesday"> Tuesday<br><br>
+                                    <input type="radio" name="day" value="Wednesday"> Wednesday<br><br>
+                                    <input type="radio" name="day" value="Thursday"> Thursday<br><br>
+                                    <input type="radio" name="day" value="Friday"> Friday<br><br>
+                                
+                                <button type="submit" class="btn btn-primary" onclick="location.href="{% url 'vote' %}""> VOTE </button>
+                              </form>
                             </div>
                         </div>
                     </div>
