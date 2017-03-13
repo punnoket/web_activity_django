@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     'django_extensions',
 ]
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -55,6 +58,7 @@ MIDDLEWARE_CLASSES = [
 ]
 
 ROOT_URLCONF = 'ProjectAct.urls'
+
 
 TEMPLATES = [
     {

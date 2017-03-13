@@ -11,13 +11,16 @@ def hike(request):
 	return render(request, 'hike.html', {'key': "value" })
 
 def all_activity(request):
-	return render(request, 'AllAc.html',{'key': "value"})
+	id = 1;
+	activities = Activity.objects.all()
+	print(activities)
+	return render(request, 'AllAc.html',{'activity': activities})
 
 def vote(request):
 	score = request.GET.get("day")
 	print(score)
 	##return redirect('home')
-	return render(request, 'home.html', {'key': "value" })
+	return render(request, 'vote.html', {'key': "value" })
 
 class CreateActivity(CreateView):
 	queryset = Activity()

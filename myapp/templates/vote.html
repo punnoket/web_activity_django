@@ -1,0 +1,39 @@
+<head>
+<body>
+  <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="close-modal" data-dismiss="modal">
+                  <div class="lr">
+                      <div class="rl">
+                      </div>
+                  </div>
+              </div>
+              <div class="container">
+                  <div class="row">
+                      <div class="col-lg-8 col-lg-offset-2">
+                          <div class="modal-body">
+                              <!-- Project Details Go Here -->
+                              <h2>Project Name</h2>
+                              <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+
+                            
+                              <form action="/vote"align="center" name ="days" method="get">
+                                  <input type="radio" name="day" value="Monday"> Monday<br><br>
+                                  <input type="radio" name="day" value="Tuesday"> Tuesday<br><br>
+                                  <input type="radio" name="day" value="Wednesday"> Wednesday<br><br>
+                                  <input type="radio" name="day" value="Thursday"> Thursday<br><br>
+                                  <input type="radio" name="day" value="Friday"> Friday<br><br>
+
+                              <button type="submit" class="btn btn-primary" onclick="location.href="{% url 'vote' %}""> VOTE </button>
+                            </form>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+</body>
+</head>
