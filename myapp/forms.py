@@ -15,4 +15,4 @@ class ActivityForm(ModelForm):
 	def __init__(self, *args, **kwargs):
 		super(ActivityForm, self).__init__(*args, **kwargs)
 		self.helper = FormHelper()
-		self.helper.add_input(Submit('submit', 'Submit'))
+		self.helper.add_input(Submit('submit', 'Submit', onclick="window.history.back()"))

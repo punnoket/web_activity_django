@@ -11,8 +11,7 @@ def hike(request):
 	return render(request, 'hike.html', {'key': "value" })
 
 def vote(request):
-	score = request.body
-	print("test")
+	score = request.GET.get("days")
 	print(score)
 	##return redirect('home')
 	return render(request, 'home.html', {'key': "value" })

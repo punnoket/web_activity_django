@@ -317,15 +317,14 @@ input[type=submit]:hover {
                                 <h2>Project Heading</h2>
                                 <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                                 <img class="img-responsive img-centered" src="{% static 'img/portfolio/1440084817-28-o.png'%}" alt="">
-                                <form align="center" name ="days" method="get" action="">
-                                    <input type="radio" name="day" value="male"> Monday<br><br>
-                                    <input type="radio" name="day" value="female"> Tuesday<br><br>
-                                    <input type="radio" name="day" value="other"> Wednesday<br><br>
-                                    <input type="radio" name="day" value="female"> Thursday<br><br>
-                                    <input type="radio" name="day" value="other"> Friday<br><br>
+                                <form align="center" name ="days" method="get" action="{% url 'vote'%}">
+                                    <input type="radio" name="day" value="Monday"> Monday<br><br>
+                                    <input type="radio" name="day" value="Tuesday"> Tuesday<br><br>
+                                    <input type="radio" name="day" value="Wednesday"> Wednesday<br><br>
+                                    <input type="radio" name="day" value="Thursday"> Thursday<br><br>
+                                    <input type="radio" name="day" value="Friday"> Friday<br><br>
                                     <input type="submit" value="vote">
                                   </form>
-
                                   <a href="{% url 'vote'%}" class="portfolio-link" data-toggle="modal">VOTE</a>
                                 <button type="button" class="btn btn-primary" onclick="location.href="{% url 'vote' %}""> VOTE </button>  </div>
                         </div>
