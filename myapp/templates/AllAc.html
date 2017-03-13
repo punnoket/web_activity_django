@@ -96,7 +96,7 @@ input[type=submit]:hover {
     </nav>
 
     <!-- Header -->
-    <header>
+   <!--  <header>
         <div class="container">
             <div class="intro-text">
                 <div class="intro-lead-in">Welcome To Activity TU</div>
@@ -104,16 +104,18 @@ input[type=submit]:hover {
                 <a href="#portfolio" class="page-scroll btn btn-xl">Let's Vote</a>
             </div>
         </div>
-    </header>
+    </header> -->
 
 
 
-<<<<<<< HEAD
     <!-- Portfolio Grid Section -->
     <section id="portfolio" class="bg-light-gray">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
+                 {% for i in images %}
+                     <img     src="{{i.image.url}}" > </img> 
+                 {% endfor %}
                     <h2 class="section-heading">Activity</h2>
                     <h3 class="section-subheading text-muted">Please select activity that you want to vote</h3>
                 </div>
@@ -207,52 +209,7 @@ input[type=submit]:hover {
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Add Activity</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-
-                     <div id="togtang">
-                      <form action="/action_page.php">
-                        <label for="fname">Activity Name</label>
-                        <input type="text" id="fname" name="firstname" placeholder="activity name..">
-
-                        <label for="lname">Description</label>
-                        <input type="text" id="lname" name="lastname" placeholder="Description..">
-
-                        <label for="image_file">Please select image </label>
-                        <input type="file"  name="image_file" id="image_file" onchange="fileSelected();"  >
-
-                        <input type="submit" value="Submit" onclick="">
-                      </form>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-12">
-
-                    <ul class="timeline">
-                        <li class="timeline-inverted" style="margin-top: 30px">
-                            <div class="timeline-image">
-                                <h4>Activity
-                                    <br>So
-                                    <br>Good!</h4>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
+   
     <!-- Portfolio Modals -->
     <!-- Use the modals below to showcase details about your portfolio projects! -->
 
@@ -312,14 +269,15 @@ input[type=submit]:hover {
                                 <h2>Project Heading</h2>
                                 <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                                 <img class="img-responsive img-centered" src="{% static 'img/portfolio/1440084817-28-o.png'%}" alt="">
-                                <form align="center" name ="days" method="get" action="{% url 'vote'%}">
-                                    <input type="radio" name="day" value="Monday"> Monday<br><br>
-                                    <input type="radio" name="day" value="Tuesday"> Tuesday<br><br>
-                                    <input type="radio" name="day" value="Wednesday"> Wednesday<br><br>
-                                    <input type="radio" name="day" value="Thursday"> Thursday<br><br>
-                                    <input type="radio" name="day" value="Friday"> Friday<br><br>
+                                <form align="center" name ="days" method="get" action="">
+                                    <input type="radio" name="day" value="male"> Monday<br><br>
+                                    <input type="radio" name="day" value="female"> Tuesday<br><br>
+                                    <input type="radio" name="day" value="other"> Wednesday<br><br>
+                                    <input type="radio" name="day" value="female"> Thursday<br><br>
+                                    <input type="radio" name="day" value="other"> Friday<br><br>
                                     <input type="submit" value="vote">
                                   </form>
+
                                   <a href="{% url 'vote'%}" class="portfolio-link" data-toggle="modal">VOTE</a>
                                 <button type="button" class="btn btn-primary" onclick="location.href="{% url 'vote' %}""> VOTE </button>  </div>
                         </div>
@@ -469,9 +427,6 @@ input[type=submit]:hover {
         </div>
     </div>
 
-=======
-   
->>>>>>> 57cd3b96050094f33d4adde8fc5ba37269e2e9f3
     <!-- jQuery -->
     <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
 
