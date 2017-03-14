@@ -23,10 +23,13 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls,name="admin"),
     url(r'^auth/',include('wl_auth.urls',namespace="wl_auth")),
     url(r'^home/', views.home,name="home"),
+    url(r'^$', views.home, name='home'),
     url(r'^vote/(?P<id>[0-9]+)$', views.vote,name = "vote"),
-    url(r'^vote_score/', views.voteScore,name = "vote_score"),
+    url(r'^vote_score/(?P<id>[0-9]+)$', views.voteScore,name = "vote_score"),
     url(r'^all_activity/', views.all_activity,name = "all_activity"),
-    url(r'^add_activity/', views.CreateActivity.as_view(),name = "add_activity"),
+    url(r'^add_activity/$', views.CreateActivity.as_view(),name = "add_activity"),
+    url(r'^vote_test/$', views.CreateVoteActivity.as_view(),name = "vote_test"),
+    url(r'^show_score_vote/(?P<id>[0-9]+)$', views.showVoteScore,name = "show_score_vote"),
 
 
     # url(r'^$',Redirectview.as_view(url="/main/home/"),name='index'),

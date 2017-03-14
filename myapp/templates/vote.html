@@ -30,7 +30,7 @@
           <div class="col-sm-3" >
 
             <h2 id="vote">Vote !!!!</h2>
-                              <form id="radiobax"action="/vote_score"align="center" name ="days" method="get">
+                              <form id="radiobax"action="{% url 'vote_score' id%}"align="center" name ="days" method="get">
                               <div id="from">
                                   <input id="inputid" type="radio" name="day" value="Monday"> Monday<br><br>
                                   <input id="inputid" type="radio" name="day" value="Tuesday"> Tuesday<br><br>
@@ -41,6 +41,9 @@
                               <button type="submit" class="btn btn-primary" onclick="location.href="""> VOTE </button>
                             </form>
 
+                              <form action="{% url 'show_score_vote' id%}"align="center" name ="result" method="get">
+                                    <button type="submit" class="btn btn-primary" onclick="location.href="""> RESULT VOTE </button>
+                              </form>
 
           </div>
           <div class="col-sm-1">

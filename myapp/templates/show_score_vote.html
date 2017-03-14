@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<h1>{{activity.Activityname}}</h1>
+<h2>{{activity.description}}</h2>
+<img src="{{activity.image.url}}" style="width:300px;heigth:300px;"> </img>
+<p>
+{% for i in dayList %}
+
+   {{i}}
+
+{% endfor %}
+</p>
+<p>
+{% for i in dayResult %}
+    
+   {{i}}
+
+{% endfor %}
+</p>
+
+{% endblock %}
