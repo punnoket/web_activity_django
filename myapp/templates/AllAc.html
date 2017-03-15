@@ -58,10 +58,19 @@ input[type=submit]:hover {
     background-color: #f2f2f2;
     padding: 20px;
 }
+#all{
+    color:#FFFFFF;
+}
+img{
+width: 300px;
+height: 250px;
+padding: 10px 10px 10px 10px ;
+
+}
 </style>
 </head>
 
-<body id="page-top" class="index">
+<body id="page-top" class="index" style="background-color: #050505">
 
     <!-- Navigation -->
     <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
@@ -71,7 +80,7 @@ input[type=submit]:hover {
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="{% url 'home' %}">TU Activity</a>
+                <a  class="navbar-brand page-scroll" href="{% url 'home' %}">TU Activity</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -82,7 +91,7 @@ input[type=submit]:hover {
                     </li>
 
                     <li>
-                        <a class="page-scroll" href="{% url 'all_activity' %}">All Activity</a>
+                        <a class="page-scroll"   href="{% url 'all_activity' %}" >All Activity</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="{% url 'add_activity' %}">Add Activity</a>
@@ -109,13 +118,13 @@ input[type=submit]:hover {
 
 
     <!-- Portfolio Grid Section -->
-    <p style="text-align:center; font-size:50px;">All Activity</p>
+    <p id="all" style="text-align:center; font-size:50px;">All Activity</p>
   			<div class="col-sm-1"></div>
   		  <div class="col-sm-10">
   				{% for i in activity %}
 
               <a href="{% url 'vote' i.id%}">
-  				   <img src="{{i.image.url}}" style="width:300px;heigth:300px;"> </img>
+  				   <img src="{{i.image.url}}" > </img>
 
           </a>
   		    {% endfor %}

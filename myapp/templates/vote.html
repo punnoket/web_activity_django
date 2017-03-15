@@ -14,18 +14,22 @@
       color:#f2f2f2;
       font-weight: bold;;
     }
-
+img{
+width: 400px;
+height: 400px;
+display: blocks;
+}
 
 
 </style>
- <body background="http://super.nova.org/XP/Lighting_Creating3D/Black/Black1.jpg"></body>
+ <body  background="http://super.nova.org/XP/Lighting_Creating3D/Black/Black1.jpg"></body>
  <br/> <br/><br/><br/><br/><h2>{{activity.Activityname}}</h2>
                               <p class="item-intro text-muted">{{activity.description}}</p> <br/> <br/><br/>
 <div class="row">
 <div class="col-sm-2">
 </div>
           <div class="col-sm-5">
-          <img src="{{activity.image.url}}" style="width:500px;heigth:500px;"></img>
+          <img src="{{activity.image.url}}" id="img"></img>
           </div>
           <div class="col-sm-3" >
 
@@ -39,12 +43,14 @@
                                   <input id="inputid" type="radio" name="day" value="Friday"> Friday<br><br>
                             </div>
                               <button type="submit" class="btn btn-primary" onclick="location.href="""> VOTE </button>
+                              <a href="{% url 'show_score_vote' id%}" class="btn btn-primary"> RESULT VOTE </a>
                             </form>
 
-                              <form action="{% url 'show_score_vote' id%}"align="center" name ="result" method="get">
+                            <!-- <a href="{% url 'show_score_vote' id%}" > asjdads </a>
+                              <form action=""align="center" name ="result" method="get">
                                     <button type="submit" class="btn btn-primary" onclick="location.href="""> RESULT VOTE </button>
                               </form>
-
+ -->
           </div>
           <div class="col-sm-1">
 </div>

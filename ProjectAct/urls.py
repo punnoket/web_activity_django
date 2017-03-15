@@ -31,7 +31,6 @@ urlpatterns = [
     url(r'^vote_test/$', views.CreateVoteActivity.as_view(),name = "vote_test"),
     url(r'^show_score_vote/(?P<id>[0-9]+)$', views.showVoteScore,name = "show_score_vote"),
 
-
     # url(r'^$',Redirectview.as_view(url="/main/home/"),name='index'),
 ] #+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

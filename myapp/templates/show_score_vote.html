@@ -1,24 +1,82 @@
 {% extends "base.html" %}
 
 {% block content %}
+<meta charset="utf-8">
+<style >
+#x1{
+	width: 500px;
+	height: 250px;
+	float: left;
+	display: block;
+}
+#x2{
+	width: 250px;
+	height: 250px;
+	float: left;
+	color: #FFFFFF
+}
+#x3 {
+	width: 250px;
+	height: 250px;
+	float: right;
+	color: #FFFFFF;
+}
+
+   img{
+   	width: 400px;
+   	height: 400px;
+   }
+   #test{
+   	text-align: center;
+   	margin-top: 100px;
+   }
+   #gg{
+   	color:#FFFFFF;
+      text-align: center;
+      color:#f2f2f2;
+      font-weight: bold;;
+
+   }
+   p{
+			font-size: 1em;
+			line-height:1.2em;
+			font-weight: bold;
+			text-align: center;
+
+	}
+}
 
 
-<h1>{{activity.Activityname}}</h1>
-<h2>{{activity.description}}</h2>
-<img src="{{activity.image.url}}" style="width:300px;heigth:300px;"> </img>
-<p>
-{% for i in dayList %}
+</style>
+<script type="text/javascript">
 
-   {{i}}
+</script>
+<body style="background-color: #000000"></body>
 
-{% endfor %}
-</p>
-<p>
-{% for i in dayResult %}
-    
-   {{i}}
+<br/><br/><br/><h1  id="gg" >{{activity.Activityname}}</h1>
+		<h2  id="gg" >{{activity.description}}</h2> <br/> <br/><br/>
 
-{% endfor %}
-</p>
-
+<div class="row">
+	<div class="col-sm-2">
+	</div>
+          <div class="col-sm-5">
+          <img  src="{{activity.image.url}}" > </img>
+          </div>
+          <div class="col-sm-3" >
+          <div id="x1">
+          		<div id="x2">
+          			{% for i in dayList %}
+					<p id="x"+i>{{i}}</p>
+					{% endfor %}
+          		</div>
+          		<div id="x3">
+          			{% for i in dayResult %}
+   					 <p id="x"+i>{{i}}</p>
+					{% endfor %}
+          		</div>
+          </div>
+          </div>
+      <div class="col-sm-1">
+	  </div>
+</div>
 {% endblock %}
