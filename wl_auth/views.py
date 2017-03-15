@@ -30,7 +30,7 @@ def signin(request):
 				request.session['username'] = user.username
 				print >>sys.stderr, "username_f: %s"%request.session['username']
 
-				return redirect('home',{'username': username})
+				return redirect('home')
 			else:
 				msg="Disabled account"
 		else:
