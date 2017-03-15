@@ -24,8 +24,9 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls,name="admin"),
     url(r'^auth/',include('wl_auth.urls',namespace="wl_auth")),
     url(r'^home/', views.home,name="home"),
-    url(r'^vote/', views.vote,name = "vote"),
+    url(r'^vote/', views.vote ,name= "vote"),
     url(r'^hike/', views.hike,name = "hike"),
+    url(r'^Activity/$', views.CreateActivity.as_view(), name='add'),
     # url(r'^$',Redirectview.as_view(url="/main/home/"),name='index'),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

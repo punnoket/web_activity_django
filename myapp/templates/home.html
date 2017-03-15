@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Activity</title>
+    <title>TU Activity</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -91,7 +91,7 @@ input[type=submit]:hover {
                         <a class="page-scroll" href="#portfolio">All Activity</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">Add Activity</a>
+                        <a class="page-scroll" href="{% url 'add'%}">Add Activity</a>
                     </li>
 
                 </ul>
@@ -225,16 +225,9 @@ input[type=submit]:hover {
 
                      <div id="togtang">
                       <form action="/action_page.php">
-                        <label for="fname">Activity Name</label>
-                        <input type="text" id="fname" name="firstname" placeholder="activity name..">
+                        {% block content %}
+                         {% endblock %}
 
-                        <label for="lname">Description</label>
-                        <input type="text" id="lname" name="lastname" placeholder="Description..">
-
-                        <label for="image_file">Please select image </label>
-                        <input type="file"  name="image_file" id="image_file" onchange="fileSelected();"  >
-
-                        <input type="submit" value="Submit">
                       </form>
                     </div>
 
@@ -282,11 +275,14 @@ input[type=submit]:hover {
                                 <img class="img-responsive img-centered" src="{% static 'img/portfolio/yourpreridechecklist2.png' %}" alt="">
 
                                 <form align="center" name ="days">
-                                    <input type="radio" name="day" value="male"> Monday<br><br>
+                                <div align="center">
+                                     <input type="radio" name="day" value="male"> Monday<br><br>
                                     <input type="radio" name="day" value="female"> Tuesday<br><br>
                                     <input type="radio" name="day" value="other"> Wednesday<br><br>
                                     <input type="radio" name="day" value="female"> Thursday<br><br>
                                     <input type="radio" name="day" value="other"> Friday<br><br>
+                                </div>
+                                   
                                   </form>
 
                                   <a href="{% url 'vote'%}" class="portfolio-link" data-toggle="modal">VOTE</a>
