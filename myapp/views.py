@@ -1,3 +1,8 @@
+
+from django.shortcuts import render
+from django.views.generic.edit import CreateView, UpdateView
+from .forms import ActivityForm
+from models import Activity
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView
 from models import Activity, Vote
@@ -5,6 +10,7 @@ from myapp.forms import ActivityForm, VoteForm
 
 
 username = ""
+
 # Create your views here.
 def home(request):
 	return render(request, 'home.html', {'key': "value" })
@@ -21,6 +27,7 @@ def all_activity(request):
 def vote(request, id=1):
 	activity = Activity.objects.get(id=id);
 	##return redirect('home')
+
 	return render(request, 'vote.html', {'activity': activity ,'id':id})
 
 def voteScore(request, id=1):

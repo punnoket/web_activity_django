@@ -6,12 +6,14 @@ from django.forms.extras.widgets import SelectDateWidget
 from django.contrib.admin import widgets
 import datetime
 from .models import Activity
+
 from django.forms.extras.widgets import SelectDateWidget
 from django.contrib.admin import widgets
 import datetime
 from .models import Activity, Vote
 from crispy_forms.layout import Submit
 from django.forms.widgets import RadioSelect
+
 
 
 class ActivityForm(ModelForm):

@@ -10,6 +10,7 @@ class Activity(models.Model):
     description = models.CharField(max_length=50)
     image=models.ImageField(upload_to='images')
     vote_score = models.CharField(max_length=100)
+
     def __unicode__(self):
 		return "id: %s"%(self.Activityname)
 
