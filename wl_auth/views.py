@@ -29,13 +29,13 @@ def signin(request):
 					print >>sys.stderr, "username_i: %s"%request.session['username']
 				request.session['username'] = user.username
 				print >>sys.stderr, "username_f: %s"%request.session['username']
-				
+
 				return redirect('home')
 			else:
 				msg="Disabled account"
 		else:
 			msg="Invalid username or password"
-		return render(request,'login.html',{'msg': msg})   
+		return render(request,'login.html',{'msg': msg})
 	return render(request,'login.html',{'msg': ""})
 
 def signout(request):

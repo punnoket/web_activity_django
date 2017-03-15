@@ -19,17 +19,32 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from myapp import views
 
-
 urlpatterns = [
     url(r'^admin/', admin.site.urls,name="admin"),
     url(r'^auth/',include('wl_auth.urls',namespace="wl_auth")),
     url(r'^home/', views.home,name="home"),
+<<<<<<< HEAD
     url(r'^vote/', views.vote ,name= "vote"),
     url(r'^hike/', views.hike,name = "hike"),
     url(r'^Activity/$', views.CreateActivity.as_view(), name='add'),
+=======
+    url(r'^$', views.home, name='home'),
+    url(r'^vote/(?P<id>[0-9]+)$', views.vote,name = "vote"),
+    url(r'^vote_score/(?P<id>[0-9]+)$', views.voteScore,name = "vote_score"),
+    url(r'^all_activity/', views.all_activity,name = "all_activity"),
+    url(r'^add_activity/$', views.CreateActivity.as_view(),name = "add_activity"),
+    url(r'^vote_test/$', views.CreateVoteActivity.as_view(),name = "vote_test"),
+    url(r'^show_score_vote/(?P<id>[0-9]+)$', views.showVoteScore,name = "show_score_vote"),
+
+
+>>>>>>> 68c5256acb8799fec18ecd927a56811e2eb1dfc7
     # url(r'^$',Redirectview.as_view(url="/main/home/"),name='index'),
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] #+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
 # if settings.DEBUG:
 # urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+from django.conf import settings
+from django.conf.urls.static import static
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

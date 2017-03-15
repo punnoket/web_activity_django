@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     'crispy_forms',
     'django_extensions',
 ]
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
@@ -55,6 +58,7 @@ MIDDLEWARE_CLASSES = [
 ]
 
 ROOT_URLCONF = 'ProjectAct.urls'
+
 
 TEMPLATES = [
     {

@@ -23,12 +23,6 @@
     <!-- Theme CSS -->
     <link href="{% static 'css/agency.min.css' %}" rel="stylesheet">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" integrity="sha384-0s5Pv64cNZJieYFkXYOTId2HMA2Lfb6q2nAcx2n0RTLUnCAoTTsS0nKEO27XyKcY" crossorigin="anonymous"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" integrity="sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo" crossorigin="anonymous"></script>
-    <![endif]-->
 <style type="text/css">
 
 
@@ -77,7 +71,7 @@ input[type=submit]:hover {
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">TU Activity</a>
+                <a class="navbar-brand page-scroll" href="{% url 'home' %}">TU Activity</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -88,10 +82,14 @@ input[type=submit]:hover {
                     </li>
 
                     <li>
-                        <a class="page-scroll" href="#portfolio">All Activity</a>
+                        <a class="page-scroll" href="{% url 'all_activity' %}">All Activity</a>
                     </li>
                     <li>
+<<<<<<< HEAD
                         <a class="page-scroll" href="{% url 'add'%}">Add Activity</a>
+=======
+                        <a class="page-scroll" href="{% url 'add_activity' %}">Add Activity</a>
+>>>>>>> 68c5256acb8799fec18ecd927a56811e2eb1dfc7
                     </li>
 
                 </ul>
@@ -113,6 +111,7 @@ input[type=submit]:hover {
     </header>
 
 
+<<<<<<< HEAD
 
     <!-- Portfolio Grid Section -->
     <section id="portfolio" class="bg-light-gray">
@@ -470,6 +469,8 @@ input[type=submit]:hover {
         </div>
     </div>
 
+=======
+>>>>>>> 68c5256acb8799fec18ecd927a56811e2eb1dfc7
     <!-- jQuery -->
     <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
 
