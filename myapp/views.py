@@ -9,7 +9,12 @@ from django.views.generic.edit import CreateView
 from models import Activity, Vote
 from myapp.forms import ActivityForm, VoteForm
 
+<<<<<<< HEAD
 >>>>>>> 68c5256acb8799fec18ecd927a56811e2eb1dfc7
+=======
+
+username = ""
+>>>>>>> b715c78ff18462f934f224d23dc94ab6b5a6331d
 # Create your views here.
 def home(request):
 	return render(request, 'home.html', {'key': "value" })
@@ -17,6 +22,8 @@ def home(request):
 
 def all_activity(request):
 	id = 1;
+	username = request.GET.get("username")
+	print(username)
 	#acc = Activity.objects.create(Activityname="eiei");
 	activities = Activity.objects.all()
 	return render(request, 'AllAc.html',{'activity': activities})
@@ -39,7 +46,7 @@ def voteScore(request, id=1):
 	score = request.GET.get("day")
 	activity = Activity.objects.get(id=id);
 	vote = Vote.objects.create(days=score)
-	vote.user = "pun"
+	vote.user = username
 	vote.activity = activity
 	vote.save()
 	print(score)
