@@ -19,6 +19,10 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from myapp import views
 
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = 'home'
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls,name="admin"),
     url(r'^auth/',include('wl_auth.urls',namespace="wl_auth")),
@@ -30,9 +34,14 @@ urlpatterns = [
     url(r'^add_activity/$', views.CreateActivity.as_view(),name = "add_activity"),
     url(r'^vote_test/$', views.CreateVoteActivity.as_view(),name = "vote_test"),
     url(r'^show_score_vote/(?P<id>[0-9]+)$', views.showVoteScore,name = "show_score_vote"),
+    url(r'^oauth/', include('social_django.urls', namespace='social')),
+    url(r'^login/', 'social_django.views.login_facebook', name='login'),
+     url(r'^logout/$', 'social_django.views.logout', name='logout'),
+
 
     # url(r'^$',Redirectview.as_view(url="/main/home/"),name='index'),
 ] #+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
 
 
 # if settings.DEBUG:

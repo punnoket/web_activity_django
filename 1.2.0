@@ -1,0 +1,7 @@
+Requirement already satisfied: social-auth-core in c:\python27\lib\site-packages
+Requirement already satisfied: requests-oauthlib>=0.6.1 in c:\python27\lib\site-packages (from social-auth-core)
+Requirement already satisfied: six>=1.10.0 in c:\python27\lib\site-packages (from social-auth-core)
+Requirement already satisfied: oauthlib>=1.0.3 in c:\python27\lib\site-packages (from social-auth-core)
+Requirement already satisfied: PyJWT>=1.4.0 in c:\python27\lib\site-packages (from social-auth-core)
+Requirement already satisfied: python-openid>=2.2.5 in c:\python27\lib\site-packages (from social-auth-core)
+Requirement already satisfied: requests>=2.9.1 in c:\python27\lib\site-packages (from social-auth-core)

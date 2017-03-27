@@ -26,7 +26,8 @@ SECRET_KEY = '3^hw1)#)nb)b6l=o7lyh75t4ih7ol9s+wxuo3ddnrga@%z^3tq'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+SOCIAL_AUTH_FACEBOOK_KEY = '245281322603010'  # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = '59c1523d008c5605343638633918f58a'  # App Secret
 
 # Application definition
 
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'myapp',
     'crispy_forms',
     'django_extensions',
+    'social_django',
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -55,9 +57,20 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'ProjectAct.urls'
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.facebook.FacebookOAuth2',
+
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+
 
 
 TEMPLATES = [
@@ -71,6 +84,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',  # <--
+                'social_django.context_processors.login_redirect', # <--
             ],
         },
     },

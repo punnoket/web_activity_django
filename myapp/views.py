@@ -1,4 +1,4 @@
-
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView
 from .forms import ActivityForm
@@ -7,9 +7,13 @@ from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView
 from models import Activity, Vote
 from myapp.forms import ActivityForm, VoteForm
-
+from django.contrib.auth.decorators import login_required
 
 username = ""
+
+@login_required
+def login(request):
+    return render(request, 'test_auth.html')
 
 # Create your views here.
 def home(request):
