@@ -19,13 +19,15 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from myapp import views
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 507f6e70916d0b48356a089afbb7b74e8bde1cb1
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls,name="admin"),
-    url(r'^auth/',include('wl_auth.urls',namespace="wl_auth")),
+    url(r'^$',include('wl_auth.urls',namespace="wl_auth")),
     url(r'^home/', views.home,name="home"),
-    url(r'^$', views.home, name='home'),
     url(r'^vote/(?P<id>[0-9]+)$', views.vote,name = "vote"),
     url(r'^vote_score/(?P<id>[0-9]+)$', views.voteScore,name = "vote_score"),
     url(r'^all_activity/', views.all_activity,name = "all_activity"),
@@ -33,8 +35,8 @@ urlpatterns = [
     url(r'^vote_test/$', views.CreateVoteActivity.as_view(),name = "vote_test"),
     url(r'^show_score_vote/(?P<id>[0-9]+)$', views.showVoteScore,name = "show_score_vote"),
     url(r'^oauth/', include('social_django.urls', namespace='social')),
-    url(r'^login/', 'social_django.views.login_facebook', name='login'),
-     url(r'^logout/$', 'social_django.views.logout', name='logout'),
+    url(r'^login/$', 'social_django.views.login_facebook', name='login'),
+    url(r'^logout/$', 'social_django.views.logout', name='logout'),
 
 
     # url(r'^$',Redirectview.as_view(url="/main/home/"),name='index'),

@@ -85,7 +85,7 @@ input[type=submit]:hover {
                         <a class="page-scroll" href="{% url 'all_activity' %}">All Activity</a>
                     </li>
                     <li>
-                    
+
                         <a class="page-scroll" href="{% url 'add_activity' %}">Add Activity</a>
 
                     </li>
@@ -101,7 +101,8 @@ input[type=submit]:hover {
     <header>
         <div class="container">
             <div class="intro-text">
-                <div class="intro-heading">HI !! {{username}}</div>
+                <div class="intro-heading">HI !! {{username}} {{ user.username }}!</div>
+
                 <div class="intro-lead-in">Welcome To Activity TU</div>
                 <a href="#portfolio" class="page-scroll btn btn-xl">Let's Vote</a>
             </div>

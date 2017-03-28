@@ -12,6 +12,7 @@ def signin(request):
 		username = request.POST['username']
 		password = request.POST['password']
 		user = authenticate(username=username, password=password)
+		request.session['username'] = username
 		print >>sys.stderr, "debug"
 		if user is not None:
 			if user.is_active:
@@ -30,7 +31,7 @@ def signin(request):
 				request.session['username'] = user.username
 				print >>sys.stderr, "username_f: %s"%request.session['username']
 
-				return render(request, 'Home.html', {'username': username})
+				return redirect('home')
 			else:
 				msg="Disabled account"
 		else:

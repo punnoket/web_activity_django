@@ -31,6 +31,13 @@ DEBUG = True
 ALLOWED_HOSTS = []
 SOCIAL_AUTH_FACEBOOK_KEY = '245281322603010'  # App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = '73fe916d36c07492ee33e52e0cd454bb'  # App Secret
+<<<<<<< HEAD
+=======
+
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = 'home'
+>>>>>>> 507f6e70916d0b48356a089afbb7b74e8bde1cb1
 
 # Application definition
 

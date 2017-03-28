@@ -10,6 +10,7 @@ from social_core.actions import do_auth, do_complete, do_disconnect
 from .utils import psa
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
+from django.core import serializers
 
 NAMESPACE = getattr(settings, setting_name('URL_NAMESPACE'), None) or 'social'
 
@@ -40,6 +41,8 @@ def auth(request, backend):
 @psa('{0}:complete'.format(NAMESPACE))
 def complete(request, backend, *args, **kwargs):
     """Authentication complete view"""
+    print(request.user)
+    request.session['username'] = request.user.username  
 
     return do_complete(request.backend, _do_login, request.user,
                        redirect_name=REDIRECT_FIELD_NAME, *args, **kwargs)
@@ -60,7 +63,6 @@ def _do_login(backend, user, social_user):
     user.backend = '{0}.{1}'.format(backend.__module__,
                                   backend.__class__.__name__)
     auth_login(backend.strategy.request, user)
-
     if backend.setting('SESSION_EXPIRATION', False):
         # Set session expiration date if present and enabled
         # by setting. Use last social-auth instance for current
@@ -75,5 +77,3 @@ def _do_login(backend, user, social_user):
             except OverflowError:
                 # Handle django time zone overflow
                 backend.strategy.request.session.set_expiry(None)
-
-    
