@@ -19,11 +19,6 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from myapp import views
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 507f6e70916d0b48356a089afbb7b74e8bde1cb1
-
 urlpatterns = [
     url(r'^admin/', admin.site.urls,name="admin"),
     url(r'^$',include('wl_auth.urls',namespace="wl_auth")),
