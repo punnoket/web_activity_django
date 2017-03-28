@@ -11,20 +11,16 @@ from django.contrib.auth.decorators import login_required
 
 username = ""
 
-@login_required
-def login(request):
-    return render(request, 'test_auth.html')
-
 # Create your views here.
 def home(request):
-	return render(request, 'home.html', {'key': "value" })
+
+    username = str(request.session.get('user'))
+    return render(request, 'home.html', {'key': "value" })
 
 
 def all_activity(request):
 	id = 1;
-	username = request.GET.get("username")
-	print(username)
-	#acc = Activity.objects.create(Activityname="eiei");
+
 	activities = Activity.objects.all()
 	return render(request, 'AllAc.html',{'activity': activities})
 
@@ -38,7 +34,7 @@ def voteScore(request, id=1):
 	score = request.GET.get("day")
 	activity = Activity.objects.get(id=id);
 	vote = Vote.objects.create(days=score)
-	vote.user = username
+	vote.user = request.session.get('user')
 	vote.activity = activity
 	vote.save()
 	print(score)
