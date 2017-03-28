@@ -11,6 +11,10 @@ from django.contrib.auth.decorators import login_required
 
 username = ""
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 507f6e70916d0b48356a089afbb7b74e8bde1cb1
 # Create your views here.
 def home(request):
     print(request.session.get('username'))
