@@ -19,9 +19,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from myapp import views
 
-LOGIN_URL = 'login'
-LOGOUT_URL = 'logout'
-LOGIN_REDIRECT_URL = 'home'
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls,name="admin"),

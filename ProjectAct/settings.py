@@ -15,6 +15,9 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = 'home'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
@@ -27,7 +30,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 SOCIAL_AUTH_FACEBOOK_KEY = '245281322603010'  # App ID
-SOCIAL_AUTH_FACEBOOK_SECRET = '59c1523d008c5605343638633918f58a'  # App Secret
+SOCIAL_AUTH_FACEBOOK_SECRET = '73fe916d36c07492ee33e52e0cd454bb'  # App Secret
 
 # Application definition
 

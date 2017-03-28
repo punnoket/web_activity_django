@@ -11,9 +11,6 @@ from django.contrib.auth.decorators import login_required
 
 username = ""
 
-@login_required
-def login(request):
-    return render(request, 'test_auth.html')
 
 # Create your views here.
 def home(request):
