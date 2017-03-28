@@ -101,10 +101,11 @@ input[type=submit]:hover {
     <header>
         <div class="container">
             <div class="intro-text">
-                <div class="intro-heading">HI !! {{username}} {{ user.username }}!</div>
+                <div class="intro-heading">HI !!  {{ user.username }}!</div>
 
                 <div class="intro-lead-in">Welcome To Activity TU</div>
-                <a href="#portfolio" class="page-scroll btn btn-xl">Let's Vote</a>
+                <a href="#portfolio" class="page-scroll btn btn-xl">Let's Vote</a><br>
+                <a href="{% url 'logout' %}" >LOG OUT</a>
             </div>
         </div>
     </header>

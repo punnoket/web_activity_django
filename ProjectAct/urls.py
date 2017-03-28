@@ -32,7 +32,7 @@ urlpatterns = [
     url(r'^show_score_vote/(?P<id>[0-9]+)$', views.showVoteScore,name = "show_score_vote"),
     url(r'^oauth/', include('social_django.urls', namespace='social')),
     url(r'^login/$', 'social_django.views.login_facebook', name='login'),
-    url(r'^logout/$', 'social_django.views.logout', name='logout'),
+    url(r'^logout/$', 'wl_auth.views.signout', name='logout'),
 
 
     # url(r'^$',Redirectview.as_view(url="/main/home/"),name='index'),

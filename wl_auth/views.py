@@ -12,7 +12,7 @@ def signin(request):
 		username = request.POST['username']
 		password = request.POST['password']
 		user = authenticate(username=username, password=password)
-		request.session['username'] = username
+		
 		print >>sys.stderr, "debug"
 		if user is not None:
 			if user.is_active:

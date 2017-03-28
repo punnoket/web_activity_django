@@ -13,8 +13,7 @@ username = ""
 
 # Create your views here.
 def home(request):
-
-    username = str(request.session.get('user'))
+    print(request.session.get('username'))
     return render(request, 'home.html', {'key': "value" })
 
 
@@ -31,14 +30,16 @@ def vote(request, id=1):
 	return render(request, 'vote.html', {'activity': activity ,'id':id})
 
 def voteScore(request, id=1):
-	score = request.GET.get("day")
-	activity = Activity.objects.get(id=id);
-	vote = Vote.objects.create(days=score)
-	vote.user = request.session.get('user')
-	vote.activity = activity
-	vote.save()
-	print(score)
-	return redirect('home')
+    print(request.session.get('username'))
+    ustr = str(request.session.get('username'))
+    print(ustr)
+    score = request.GET.get("day")
+    activity = Activity.objects.get(id=id);
+    vote = Vote.objects.create(days=score)
+    vote.user = ustr
+    vote.activity = activity
+    vote.save()
+    return redirect('home')
 
 def showVoteScore(request, id=1):
 	monday = 0;tuesday = 0; wednesday = 0; thursday = 0; friday = 0

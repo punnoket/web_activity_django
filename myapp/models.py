@@ -21,6 +21,6 @@ class Vote(models.Model):
 
     #days = models.BigIntegerField(verbose_name='days:', choices=DAY_CHOIE)
     days = models.CharField(max_length=50)
-    user = models.CharField(max_length=50)
+    user = models.CharField(max_length=50, null=True)
     def __unicode__(self):
 		return "id: %s"%(self.activity)
