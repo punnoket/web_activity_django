@@ -67,13 +67,22 @@ height: 250px;
 padding: 10px 10px 10px 10px ;
 
 }
+p{
+    padding-top: 100px;
+}
+#allac{
+    width:135px;
+    border-bottom: 1px solid white;
+
+}
 </style>
 </head>
 
-<body id="page-top" class="index" style="background-color: #050505">
+<body id="page-top" class="index" style="background-color: #000000" background="http://www.pixeden.com/media/k2/galleries/220/005-wood-melamine-subttle-pattern-background-pat.jpg">
 
     <!-- Navigation -->
-    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top" 
+    >
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
@@ -83,7 +92,6 @@ padding: 10px 10px 10px 10px ;
                 <a  class="navbar-brand page-scroll" href="{% url 'home' %}">TU Activity</a>
             </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="hidden">
@@ -91,51 +99,34 @@ padding: 10px 10px 10px 10px ;
                     </li>
 
                     <li>
-                        <a class="page-scroll"   href="{% url 'all_activity' %}" >All Activity</a>
+                        <a class="page-scroll"  id="allac" href="{% url 'all_activity' %}" >All Activity</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="{% url 'add_activity' %}">Add Activity</a>
                     </li>
+                    <li>
+                        <a href="{% url 'logout' %}" >{{ user.username }} |LOG OUT</a>
+                    </li>
 
                 </ul>
             </div>
-            <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container-fluid -->
     </nav>
 
-    <!-- Header -->
-   <!--  <header>
-        <div class="container">
-            <div class="intro-text">
-                <div class="intro-lead-in">Welcome To Activity TU</div>
-                <div class="intro-heading">It's Nice To Meet You</div>
-                <a href="#portfolio" class="page-scroll btn btn-xl">Let's Vote</a>
-            </div>
-        </div>
-    </header> -->
+ 
 
 
 
-    <!-- Portfolio Grid Section -->
-    <p id="all" style="text-align:center; font-size:50px;">All Activity</p>
+    <p class="section-heading" style="text-align:center; font-size:45px;">All Activity</p>
   			<div class="col-sm-1"></div>
-  		  <div class="col-sm-10">
-  				{% for i in activity %}
-
-              <a href="{% url 'vote' i.id%}">
+  		        <div class="col-sm-10">
+  				  {% for i in activity %}
+                  <a href="{% url 'vote' i.id%}">
   				   <img src="{{i.image.url}}" > </img>
-
-          </a>
-  		    {% endfor %}
-  			</div>
+                  </a>
+  		            {% endfor %}
+  			       </div>
   			<div class="col-sm-1"></div>
-
-    <!-- Portfolio Modals -->
-    <!-- Use the modals below to showcase details about your portfolio projects! -->
-
-    <!-- Portfolio Modal 1 -->
-
 
 
     <!-- jQuery -->

@@ -90,6 +90,11 @@ input[type=submit]:hover {
 
                     </li>
 
+                    <li>
+                        <a href="{% url 'logout' %}" >{{ user.username }} |LOG OUT</a>
+
+                    </li>
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -102,10 +107,8 @@ input[type=submit]:hover {
         <div class="container">
             <div class="intro-text">
                 <div class="intro-heading">HI !!  {{ user.username }}!</div>
-
                 <div class="intro-lead-in">Welcome To Activity TU</div>
-                <a href="#portfolio" class="page-scroll btn btn-xl">Let's Vote</a><br>
-                <a href="{% url 'logout' %}" >LOG OUT</a>
+                <a  class="page-scroll btn btn-xl"  href="{% url 'all_activity' %}">Let's Vote</a><br>
             </div>
         </div>
     </header>

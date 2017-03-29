@@ -8,6 +8,9 @@
 	height: 250px;
 	float: left;
 	display: block;
+  text-align: center;
+  padding-bottom: 30;
+  color: white;
 }
 #x2{
 	width: 250px;
@@ -34,7 +37,9 @@
    	color:#FFFFFF;
       text-align: center;
       color:#f2f2f2;
-      font-weight: bold;;
+      font-weight: bold;
+      padding-top: 80px;
+      padding-bottom: 40px
 
    }
    p{
@@ -51,32 +56,32 @@
 <script type="text/javascript">
 
 </script>
-<body style="background-color: #000000"></body>
+<body style="background-color: #000000" background="http://www.pixeden.com/media/k2/galleries/220/005-wood-melamine-subttle-pattern-background-pat.jpg"></body>
 
-<br/><br/><br/><h1  id="gg" >{{activity.Activityname}}</h1>
-		<h2  id="gg" >{{activity.description}}</h2> <br/> <br/><br/>
+    <h1  id="gg" >{{activity.Activityname}} </br>{{activity.description}}</h1>
 
-<div class="row">
-	<div class="col-sm-2">
-	</div>
-          <div class="col-sm-5">
-          <img  src="{{activity.image.url}}" > </img>
+      <div class="row">
+          <div class="col-sm-2">
+          </div>
+          <div class="col-sm-4">
+             <img  src="{{activity.image.url}}" > </img>
           </div>
           <div class="col-sm-3" >
-          <div id="x1">
-          		<div id="x2">
-          			{% for i in dayList %}
-					<p id="x"+i>{{i}}</p>
-					{% endfor %}
-          		</div>
-          		<div id="x3">
-          			{% for i in dayResult %}
-   					 <p id="x"+i>{{i}}</p>
-					{% endfor %}
-          		</div>
-          </div>
-          </div>
-      <div class="col-sm-1">
-	  </div>
-</div>
+             <div id="x1">
+             <h3> Result !!</h3>
+                <div id="x2">
+                   {% for i in dayList %}
+                    <p id="x"+i>{{i}}</p>
+                   {% endfor %}
+                </div>
+                <div id="x3">
+                    {% for i in dayResult %}
+                    <p id="x"+i>{{i}}</p>
+                 {% endfor %}
+                 </div>
+            </div>
+         </div>
+        <div class="col-sm-1">
+        </div>
+    </div>
 {% endblock %}
